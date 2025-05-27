@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "us-east-1"
+  region = "us-west-2"
 }
 
 resource "aws_security_group" "testaws" {
@@ -26,6 +26,11 @@ resource "aws_instance" "example" {
   ami           = "ami-0c02fb55956c7d316" # Amazon Linux 2 AMI (us-east-1)
   instance_type = "t2.micro"
   security_groups = [aws_security_group.testaws.name]
+
+  root_block_device {
+    volume_size = 30
+    volume_type = "gp2"
+  }
 
   tags = {
     Name = "TerraformEC2"
