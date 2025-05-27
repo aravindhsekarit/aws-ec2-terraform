@@ -26,6 +26,7 @@ resource "aws_instance" "example" {
   ami           = "ami-075686beab831bb7f" # Amazon Linux 2 AMI (us-east-1)
   instance_type = "t2.micro"
   security_groups = [aws_security_group.testaws.name]
+  key_name      = "awstest" # Reference your existing key pair name, without .pem
 
   root_block_device {
     volume_size = 30
