@@ -23,7 +23,7 @@ resource "aws_security_group" "testaws" {
 }
 
 resource "aws_instance" "example" {
-  ami           = "ami-0c02fb55956c7d316" # Amazon Linux 2 AMI (us-east-1)
+  ami           = "ami-075686beab831bb7f" # Amazon Linux 2 AMI (us-east-1)
   instance_type = "t2.micro"
   security_groups = [aws_security_group.testaws.name]
 
@@ -33,7 +33,7 @@ resource "aws_instance" "example" {
   }
 
   tags = {
-    Name = "TerraformEC2"
+    Name = "Jenkins-innstance"
   }
 }
 
